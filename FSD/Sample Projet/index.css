@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 4% 10%;
+}
+
+.title{
+    margin: 20px;
+}
+
+.content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content h1{
+    font-size: 40px;
+}
+
+.content h2 span{
+    font-style: italic;
+}
+
