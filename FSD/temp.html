@@ -3,22 +3,32 @@
 <body>
 
 <h2>JavaScript addEventListener()</h2>
+Add New Content:
+<input type="text" id="inptext">
+<button id="btn">Add</button>
+<table id="table">
+  <tr>
+    <th>Id</th>
+    <th>Content</th>
+  </tr>
+</table>
 
-<input id="num1" type="number" placeholder="Number 1" name="num1">
-<input id="num2" type="number" placeholder="Number 2" name="num2">
-<label id="result">Result: </label>
-<button id="addBtn">Add</button>
-
-<p id="demo"></p>
 
 <script>
-document.getElementById("addBtn").addEventListener("click", () => {add()});
-
+document.getElementById("btn").addEventListener("click", () => {add()});
+let id = 1;
 function add() {
-  num1 = document.getElementById("num1").value;
-  num2 = document.getElementById("num2").value;
-  res = Number(num1) + Number(num2);
-  document.getElementById('result').innerHTML = `Result: ${res}`;
+  let content = document.getElementById("inptext").value;
+  const row = document.createElement("tr");
+  const row_id = document.createElement("td");
+  const row_content = document.createElement("td");
+  row_id.textContent = id;
+  id += 1;
+  row_content.textContent  = content;
+  row.appendChild(row_id);
+  row.appendChild(row_content);
+  const table = document.getElementById("table");
+  table.appendChild(row);
 }
 
 </script>
