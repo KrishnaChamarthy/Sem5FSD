@@ -1,41 +1,83 @@
+let page = "Register";
+
+if (page === "Login") {
+  $(".email-element").hide();
+  $(".confirm-password-element").hide();
+  $(".mobile-element").hide();
+  $(".title").text("Student Login");
+} else {
+  $(".email-element").show();
+  $(".confirm-password-element").show();
+  $(".mobile-element").show();
+  $(".title").text("Student Register");
+}
+
 $("#btn").on("click", function (event) {
   event.preventDefault();
-  let username = $("#username-input").val();
-  let email = $("#email-input").val();
-  let password = $("#password-input").val();
-  let confirm_password = $("#confirm-password-input").val();
-  let mobile = $("#mobile-input").val();
+  let username = $("#username-input").val().trim();
+  let email = $("#email-input").val().trim();
+  let password = $("#password-input").val().trim();
+  let confirm_password = $("#confirm-password-input").val().trim();
+  let mobile = $("#mobile-input").val().trim();
 
   let output = $("#output");
+  let hasError = false; 
 
-  if (!username || !email || !password || !confirm_password || !mobile) {
-    output.text("Fields Empty");
+  $(".username").removeClass("invalid valid");
+  $(".email").removeClass("invalid valid");
+  $(".mobile").removeClass("invalid valid");
+  $(".password").removeClass("invalid valid");
+  $(".confirm-password").removeClass("invalid valid");
+  if (!username) {
+    $(".username").addClass("invalid");
     hasError = true;
-    if (!username) {
-      $(".username").addClass("invalid");
-    } 
+  } else {
+    $(".username").addClass("valid");
+  }
+
+  if (page === "Register") {
     if (!email) {
       $(".email").addClass("invalid");
+      hasError = true;
+    } else if (
+      !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    ) {
+      output.text("Email Error");
+      $(".email").addClass("invalid");
+      return;
+    } else {
+      $(".email").addClass("valid");
     }
+
     if (!mobile) {
       $(".mobile").addClass("invalid");
+      hasError = true;
+    } else if (mobile.length != 10 || !/^\d+$/.test(mobile)) {
+      output.text("Mobile No. Error");
+      $(".mobile").addClass("invalid");
+      return;
+    } else {
+      $(".mobile").addClass("valid");
     }
-    if (!password) {
-      $(".password").addClass("invalid");
-    }
+
     if (!confirm_password) {
       $(".confirm-password").addClass("invalid");
+      hasError = true;
+    } else if (confirm_password !== password) {
+      output.text("Confirm Password Error");
+      $(".confirm-password").addClass("invalid");
+      return;
+    } else {
+      $(".confirm-password").addClass("valid");
     }
-    return;
   }
-  if (mobile.length != 10 || !/^\d+$/.test(mobile)) {
-    output.text("Mobile No. Error");
-    $(".mobile").addClass("invalid");
-    return;
-  } else {
-    $(".mobile").addClass("valid");
-  }
-  if (
+
+  if (!password) {
+    $(".password").addClass("invalid");
+    hasError = true;
+  } else if (
     password.length <= 7 ||
     !/^(?=.*[A-Z])(?=.*\d)(?=.*[&$#@])[A-Za-z\d&$#@]{7,}$/.test(password)
   ) {
@@ -45,25 +87,35 @@ $("#btn").on("click", function (event) {
   } else {
     $(".password").addClass("valid");
   }
-  if (confirm_password !== password) {
-    output.text("Confirm Password Error");
-    $(".confirm-password").addClass("invalid");
-    return;
+
+  if (hasError) {
+    output.text("Please fix errors.");
   } else {
-    $(".confirm-password").addClass("valid");
+    output.text(page === "Login" ? "Logged In Successfully" : "Registered Successfully");
   }
-  if (
-    !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email
-    )
-  ) {
-    output.text("Email Error");
-    $(".email").addClass("invalid");
-    return;
+});
+
+$(".login-register").on("click", function (event) {
+  var buttonText = $(this).text();
+  $(".username").removeClass("invalid valid");
+  $(".email").removeClass("invalid valid");
+  $(".mobile").removeClass("invalid valid");
+  $(".password").removeClass("invalid valid");
+  $(".confirm-password").removeClass("invalid valid");
+  $("#output").text("");
+  if (buttonText === "Login") {
+    $(this).text("Register");
+    page = "Register";
+    $(".email-element").show();
+    $(".confirm-password-element").show();
+    $(".mobile-element").show();
+    $(".title").text("Student Register");
   } else {
-    $(".email").addClass("valid");
+    $(this).text("Login");
+    page = "Login";
+    $(".email-element").hide();
+    $(".confirm-password-element").hide();
+    $(".mobile-element").hide();
+    $(".title").text("Student Login");
   }
-  $(".username").addClass("valid");
-  output.text("Logged In Successfully");
-  return;
 });
