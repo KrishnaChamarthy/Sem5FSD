@@ -93,6 +93,7 @@ body{
     padding: 20% 10% 5%;
 }
 
+
 .projects-title p{
     font-size: 30px;
     color: #34877e;
@@ -100,6 +101,13 @@ body{
     border: 2px solid #34877e;
     border-radius: 10px;
     width: fit-content;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.projects-title p:hover{
+    color: white;
+    background-color: #34877e;
 }
 
 .projects ul{
