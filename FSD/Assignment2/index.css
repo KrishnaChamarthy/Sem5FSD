@@ -12,6 +12,11 @@ body{
     background-color: #0a192f;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .title{
     margin: 20px;
 }
