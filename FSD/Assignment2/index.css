@@ -115,22 +115,25 @@ a{
     background-color: #34877e;
 }
 
-.projects ul{
-    padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    gap: 30px;
+.container{
+    margin-top: 50px;
 }
 
-.projects ul li{
-    flex: 1;
-    text-align: center;
+.card-body{
+    padding: 20px;
+}
+
+.project-card{
     font-size: max(20px, 10px);
     background-color: #69728d78;
-    height: 200px;
+    height: 100%;
     border-radius: 10px;
+    border: none;
+    color: #34877e;
+}
+
+.project-card p{
+    color: #69728d;
 }
 
 .project-title{
@@ -143,9 +146,6 @@ a{
     justify-content: center;
 }
 
-.project-info{
-    color: #69728d;
-}
 
 .contact{
     padding: 5% 10%;
@@ -173,6 +173,25 @@ a{
 .element img{
     width: 40px;
 }
+
+.navbar ul {
+    list-style-type: none;
+  }
+
+  .navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  /* Ensure dropdown is hidden by default */
+  .dropdown-menu {
+    display: none;
+  }
+
+  /* Show dropdown on hover */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 
 @media (max-width: 600px) {
     .navbar{
