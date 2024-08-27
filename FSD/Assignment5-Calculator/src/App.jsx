@@ -46,8 +46,7 @@ const App = () => {
       } else {
         setOperator(ele);
         setPrevValue(value);
-        setValue("0");
-      }
+       }
     } else if (nums.includes(ele)) {
       setValue((prev) => (prev === "0" ? ele : prev + ele));
     } else if (ele === ".") {
