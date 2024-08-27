@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Outfit;
+  scroll-behavior: smooth;
+}
+body{
+  height: 100vh;
+}
+
+.app{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to bottom right, #9cd9d0, #e0b77c);
+  
+}
+
+.calc-container{
+    width: 340px;
+    height: 540px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #165482;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+}
+
+.calc-inputs{
+  height: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  background-color: #1f5587;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  box-sizing: border-box;
+  font-size: 50px;
+}
+
+.calc-buttons{
+  width: 100%;
+  height: calc(100% - 110px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.calc-button{
+  border: none;
+  background-color: #a7a7e0;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+}
+
+.calc-button:hover {
+  background-color: #8c8ce0;
+}
+
+.equals {
+  grid-column: 3 / 5;
+  background-color: #ea725f;
+}
+
+.equals:hover {
+  background-color: #ee5f49;
+}
