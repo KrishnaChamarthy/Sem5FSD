@@ -16,4 +16,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("./assets/pexels-stywo-1261728.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
