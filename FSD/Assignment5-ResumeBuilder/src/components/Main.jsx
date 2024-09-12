@@ -4,8 +4,10 @@ import AddIcon from "../assets/add.png";
 import EduIcon from "../assets/mortarboard.png";
 import ExpIcon from "../assets/briefcase.png";
 import ObjIcon from "../assets/pencil.png";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     selectedImage: null,
     name: "",
@@ -191,7 +193,13 @@ const Main = () => {
             </ul>
           </div>
         </div>
+        
       </div>
+      <button className="submit-button" onClick={() => {
+        navigate("/build",  { state: { formData } });
+      }}>
+          Build
+      </button>
     </div>
   );
 };
