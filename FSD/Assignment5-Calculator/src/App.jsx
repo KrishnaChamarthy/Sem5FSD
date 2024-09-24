@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from './Button';
+import Display from './Display';
 
 const App = () => {
   const [value, setValue] = useState("0");
@@ -60,28 +62,26 @@ const App = () => {
   return (
     <div className='app'>
       <div className="calc-container">
-        <div className="calc-inputs">
-          <label className="input-bar">{value}</label>
-        </div>
+        <Display value={value}/>
         <div className="calc-buttons">
-          <button className='calc-button' onClick={() => handleButtonClick("C")}>C</button>
-          <button className='calc-button' onClick={() => handleButtonClick("+-")}>+/-</button>
-          <button className='calc-button' onClick={() => handleButtonClick("%")}>%</button>
-          <button className='calc-button' onClick={() => handleButtonClick("/")}>/</button>
-          <button className='calc-button' onClick={() => handleButtonClick("7")}>7</button>
-          <button className='calc-button' onClick={() => handleButtonClick("8")}>8</button>
-          <button className='calc-button' onClick={() => handleButtonClick("9")}>9</button>
-          <button className='calc-button' onClick={() => handleButtonClick("X")}>X</button>
-          <button className='calc-button' onClick={() => handleButtonClick("4")}>4</button>
-          <button className='calc-button' onClick={() => handleButtonClick("5")}>5</button>
-          <button className='calc-button' onClick={() => handleButtonClick("6")}>6</button>
-          <button className='calc-button' onClick={() => handleButtonClick("-")}>-</button>
-          <button className='calc-button' onClick={() => handleButtonClick("1")}>1</button>
-          <button className='calc-button' onClick={() => handleButtonClick("2")}>2</button>
-          <button className='calc-button' onClick={() => handleButtonClick("3")}>3</button>
-          <button className='calc-button' onClick={() => handleButtonClick("+")}>+</button>
-          <button className='calc-button' onClick={() => handleButtonClick("0")}>0</button>
-          <button className='calc-button' onClick={() => handleButtonClick(".")}>.</button>
+          <Button handleButtonClick={handleButtonClick} element={"C"}/>
+          <Button handleButtonClick={handleButtonClick} element={"+-"}/>
+          <Button handleButtonClick={handleButtonClick} element={"%"}/>
+          <Button handleButtonClick={handleButtonClick} element={"/"}/>
+          <Button handleButtonClick={handleButtonClick} element={"7"}/>
+          <Button handleButtonClick={handleButtonClick} element={"8"}/>
+          <Button handleButtonClick={handleButtonClick} element={"9"}/>
+          <Button handleButtonClick={handleButtonClick} element={"X"}/>
+          <Button handleButtonClick={handleButtonClick} element={"4"}/>
+          <Button handleButtonClick={handleButtonClick} element={"5"}/>
+          <Button handleButtonClick={handleButtonClick} element={"6"}/>
+          <Button handleButtonClick={handleButtonClick} element={"-"}/>
+          <Button handleButtonClick={handleButtonClick} element={"1"}/>
+          <Button handleButtonClick={handleButtonClick} element={"2"}/>
+          <Button handleButtonClick={handleButtonClick} element={"3"}/>
+          <Button handleButtonClick={handleButtonClick} element={"+"}/>
+          <Button handleButtonClick={handleButtonClick} element={"0"}/>
+          <Button handleButtonClick={handleButtonClick} element={"."}/>
           <button className='calc-button equals' onClick={() => handleButtonClick("=")}>=</button>
         </div>
       </div>

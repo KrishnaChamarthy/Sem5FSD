@@ -5,6 +5,7 @@ import EduIcon from "../assets/mortarboard.png";
 import ExpIcon from "../assets/briefcase.png";
 import ObjIcon from "../assets/pencil.png";
 import { useNavigate } from "react-router-dom";
+import TextInput from "./TextInput";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -96,50 +97,31 @@ const Main = () => {
       <hr />
       <div className="resume-main">
         <div className="resume-left">
-          <div className="about-container">
-            <h2>
-              <img src={ProfileIcon} alt="" className="icon" />
-              Profile
-            </h2>
-            <textarea
-              placeholder="Enter a bit about yourself..."
-              value={formData.about}
-              onChange={handleInputChange("about")}
-            ></textarea>
-          </div>
-          <div className="edu-container">
-            <h2>
-              <img src={EduIcon} alt="" className="icon" />
-              Education
-            </h2>
-            <textarea
-              placeholder="Enter your educational information..."
-              value={formData.education}
-              onChange={handleInputChange("education")}
-            ></textarea>
-          </div>
-          <div className="exp-container">
-            <h2>
-              <img src={ExpIcon} alt="" className="icon" />
-              Experiences
-            </h2>
-            <textarea
-              placeholder="Enter your experiences/employment history..."
-              value={formData.experiences}
-              onChange={handleInputChange("experiences")}
-            ></textarea>
-          </div>
-          <div className="obj-container">
-            <h2>
-              <img src={ObjIcon} alt="" className="icon" />
-              Objectives
-            </h2>
-            <textarea
-              placeholder="Enter your objectives..."
-              value={formData.objectives}
-              onChange={handleInputChange("objectives")}
-            ></textarea>
-          </div>
+          <TextInput
+            icon={ProfileIcon}
+            title="About"
+            value={formData.about} 
+            handleInputChange={handleInputChange("about")} 
+          />
+          <TextInput
+            icon={EduIcon}
+            title="Education"
+            value={formData.education} 
+            handleInputChange={handleInputChange("education")} 
+          />
+          <TextInput
+            icon={ExpIcon}
+            title="Experiences"
+            value={formData.experiences} 
+            handleInputChange={handleInputChange("experiences")} 
+          />
+          <TextInput
+            icon={ObjIcon}
+            title="Objectives"
+            value={formData.objectives} 
+            handleInputChange={handleInputChange("objectives")} 
+          />
+  
         </div>
         <div className="resume-right">
           <div className="skills-container">
@@ -193,12 +175,11 @@ const Main = () => {
             </ul>
           </div>
         </div>
-        
       </div>
       <button className="submit-button" onClick={() => {
-        navigate("/build",  { state: { formData } });
+        navigate("/build", { state: { formData } });
       }}>
-          Build
+        Build
       </button>
     </div>
   );

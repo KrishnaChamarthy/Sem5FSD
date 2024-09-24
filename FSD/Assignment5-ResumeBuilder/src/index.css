@@ -216,10 +216,7 @@ hr{
   margin: 0px 10px;
 }
 
-.about-container textarea,
-.edu-container textarea,
-.obj-container textarea,
-.exp-container textarea{
+.container textarea{
   width: 90%;
   align-self: center;
   height: 100%;
@@ -234,14 +231,12 @@ hr{
 
 }
 
-.about-container textarea:focus, .edu-container textarea:focus,
-.exp-container textarea:focus,
-.obj-container textarea:focus{
+.container textarea:focus{
   border-color: #4A90E2;
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
-.edu-container{
+.container{
   padding: 30px;
   border: 1px solid #dddddd; 
   border-radius: 5px;
@@ -252,7 +247,7 @@ hr{
   gap: 30px;
   margin-bottom: 40px;
 }
-.exp-container{
+.container{
   padding: 30px;
   border: 1px solid #dddddd; 
   border-radius: 5px;
@@ -262,17 +257,6 @@ hr{
   flex-direction: column;
   gap: 30px;
   margin-bottom: 40px;
-}
-
-.obj-container{
-  padding: 30px;
-  border: 1px solid #dddddd; 
-  border-radius: 5px;
-  width: 80%;
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
 .skills-container{

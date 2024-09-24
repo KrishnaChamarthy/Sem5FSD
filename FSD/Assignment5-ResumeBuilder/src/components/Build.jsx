@@ -39,28 +39,28 @@ const Build = () => {
         <hr />
         <div className="resume-main">
           <div className="resume-left">
-            <div className="about-container">
+            <div className="container">
               <h2>
                 <img src={ProfileIcon} alt="" className="icon" />
                 Profile
               </h2>
               <p>{formData.about}</p>
             </div>
-            <div className="edu-container">
+            <div className="container">
               <h2>
                 <img src={EduIcon} alt="" className="icon" />
                 Education
               </h2>
               <p>{formData.education}</p>
             </div>
-            <div className="exp-container">
+            <div className="container">
               <h2>
                 <img src={ExpIcon} alt="" className="icon" />
                 Experiences
               </h2>
               <p>{formData.experiences}</p>
             </div>
-            <div className="obj-container">
+            <div className="container">
               <h2>
                 <img src={ObjIcon} alt="" className="icon" />
                 Objectives
