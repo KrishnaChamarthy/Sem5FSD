@@ -18,6 +18,7 @@ form{
     gap: 30px;
     flex-direction: column;
     margin: 30px 0px;
+    color: white;
 }
 
 .form-element{
