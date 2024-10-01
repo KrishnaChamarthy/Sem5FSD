@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UserDataForm.css'; 
+import FormElement from './FormElement';
 
 const UserDataForm = () => {
   const [formData, setFormData] = useState({
@@ -68,56 +69,11 @@ const UserDataForm = () => {
     <div className='userdataform'>
       <h2>User Data Form</h2>
       <form onSubmit={handleSubmit}>
-        <div className='form-element'>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className={errorMessage.includes('Name') ? 'error' : ''}
-          />
-        </div>
-        <div className='form-element'>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={errorMessage.includes('Email') ? 'error' : ''}
-          />
-        </div>
-        <div className='form-element'>
-          <label>Age:</label>
-          <input
-            type="number"
-            name="age"
-            value={formData.age}
-            onChange={handleChange}
-            className={errorMessage.includes('Age') ? 'error' : ''}
-          />
-        </div>
-        <div className='form-element'>
-          <label>Mobile No:</label>
-          <input
-            type="number"
-            name="mobileno"
-            value={formData.mobileno}
-            onChange={handleChange}
-            className={errorMessage.includes('Mobile') ? 'error' : ''}
-          />
-        </div>
-        <div className='form-element'>
-          <label>Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            className={errorMessage.includes('Address') ? 'error' : ''}
-          />
-        </div>
+        <FormElement label={"Name:"} value={formData.name} onChange={handleChange} className={errorMessage.includes('Name') ? 'error' : ''}/>
+        <FormElement label={"Email:"} value={formData.email} onChange={handleChange} className={errorMessage.includes('Email') ? 'error' : ''}/>
+        <FormElement label={"Age:"} value={formData.age} onChange={handleChange} className={errorMessage.includes('Age') ? 'error' : ''}/>
+        <FormElement label={"Mobile No:"} value={formData.mobileno} onChange={handleChange} className={errorMessage.includes('Mobile') ? 'error' : ''}/>
+        <FormElement label={"Address:"} value={formData.address} onChange={handleChange} className={errorMessage.includes('Address') ? 'error' : ''}/>
         <button type="submit">Submit</button>
       </form>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}

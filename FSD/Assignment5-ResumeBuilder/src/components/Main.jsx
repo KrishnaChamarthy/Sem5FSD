@@ -6,6 +6,7 @@ import ExpIcon from "../assets/briefcase.png";
 import ObjIcon from "../assets/pencil.png";
 import { useNavigate } from "react-router-dom";
 import TextInput from "./TextInput";
+import RightContainer from "./RightContainer";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -124,56 +125,8 @@ const Main = () => {
   
         </div>
         <div className="resume-right">
-          <div className="skills-container">
-            <h2>Skills</h2>
-            <div className="input-area">
-              <input
-                type="text"
-                value={formData.newSkill}
-                onChange={handleInputChange("newSkill")}
-                placeholder="Enter a new skill"
-                className="skill-input"
-              />
-              <div
-                className="add-button"
-                onClick={() => handleAddItem(formData.newSkill, "newSkill", "skills")}
-              >
-                <img src={AddIcon} alt="" />
-              </div>
-            </div>
-            <ul className="skills-list">
-              {formData.skills.map((skill) => (
-                <li key={skill} className="skill-item" onClick={() => handleRemoveItem(skill, "skills")}>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="achievements-container">
-            <h2>Achievements</h2>
-            <div className="input-area">
-              <input
-                type="text"
-                value={formData.newAchievement}
-                onChange={handleInputChange("newAchievement")}
-                placeholder="Enter a new achievement"
-                className="achievements-input"
-              />
-              <div
-                className="add-button"
-                onClick={() => handleAddItem(formData.newAchievement, "newAchievement", "achievements")}
-              >
-                <img src={AddIcon} alt="" />
-              </div>
-            </div>
-            <ul className="achievements-list">
-              {formData.achievements.map((achievement) => (
-                <li key={achievement} className="skill-item" onClick={() => handleRemoveItem(achievement, "achievements")}>
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <RightContainer title={"Skills:"} onClick={() => handleAddItem(formData.newSkill, "newSkill", "skills")} onChange={handleInputChange("newSkill")} icon={AddIcon} formData={formData}/>
+          <RightContainer title={"Achievements:"} onClick={() => handleAddItem(formData.newAchievement, "newAchievement", "achievements")} onChange={handleInputChange("newAchievement")} icon={AddIcon} formData={formData}/>
         </div>
       </div>
       <button className="submit-button" onClick={() => {
