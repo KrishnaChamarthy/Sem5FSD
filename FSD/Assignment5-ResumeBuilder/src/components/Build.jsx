@@ -4,6 +4,8 @@ import EduIcon from "../assets/mortarboard.png";
 import ExpIcon from "../assets/briefcase.png";
 import ObjIcon from "../assets/pencil.png";
 import { useLocation } from "react-router-dom";
+import BuildContainer from './BuildContainer';
+import BuildRightContainer from './BuildRightContainer';
 
 const Build = () => {
     const location = useLocation();
@@ -39,52 +41,15 @@ const Build = () => {
         <hr />
         <div className="resume-main">
           <div className="resume-left">
-            <div className="container">
-              <h2>
-                <img src={ProfileIcon} alt="" className="icon" />
-                Profile
-              </h2>
-              <p>{formData.about}</p>
-            </div>
-            <div className="container">
-              <h2>
-                <img src={EduIcon} alt="" className="icon" />
-                Education
-              </h2>
-              <p>{formData.education}</p>
-            </div>
-            <div className="container">
-              <h2>
-                <img src={ExpIcon} alt="" className="icon" />
-                Experiences
-              </h2>
-              <p>{formData.experiences}</p>
-            </div>
-            <div className="container">
-              <h2>
-                <img src={ObjIcon} alt="" className="icon" />
-                Objectives
-              </h2>
-              <p>{formData.objectives}</p>
-            </div>
+            <BuildContainer title={"Profile"} icon={ProfileIcon} value={formData.about}/>
+            <BuildContainer title={"Education"} icon={EduIcon} value={formData.education}/>
+            <BuildContainer title={"Experiences"} icon={ExpIcon} value={formData.experiences}/>
+            <BuildContainer title={"Education"} icon={EduIcon} value={formData.education}/>
+            <BuildContainer title={"Objectives"} icon={ObjIcon} value={formData.objectives}/>
           </div>
           <div className="resume-right">
-            <div className="skills-container">
-              <h2>Skills</h2>
-              <ul className='skills-list'>
-                {formData.skills.map((skill) => (
-                  <li key={skill} className='skill-item'>{skill}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="achievements-container">
-              <h2>Achievements</h2>
-              <ul className='achievements-list'>
-                {formData.achievements.map((achievement) => (
-                  <li key={achievement} className='skill-item'>{achievement}</li>
-                ))}
-              </ul>
-            </div>
+            <BuildRightContainer title={"Skills"} arr={formData.skills}/>
+            <BuildRightContainer title={"Achievements"} arr={formData.achievements}/>
           </div>
         </div>
       </div>

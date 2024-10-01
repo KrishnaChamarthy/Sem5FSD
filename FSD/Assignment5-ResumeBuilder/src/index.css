@@ -247,17 +247,7 @@ hr{
   gap: 30px;
   margin-bottom: 40px;
 }
-.container{
-  padding: 30px;
-  border: 1px solid #dddddd; 
-  border-radius: 5px;
-  width: 80%;
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 40px;
-}
+
 
 .skills-container{
   padding: 30px;

@@ -1,12 +1,12 @@
 import React from 'react'
 
-const FormElement = ({label, value, onChange, className}) => {
+const FormElement = ({label, value, onChange, className, name}) => {
   return (
     <div className='form-element'>
           <label>{label}</label>
           <input
-            type="number"
-            name="age"
+            type="text"
+            name={name}
             value={value}
             onChange={onChange}
             className={className}

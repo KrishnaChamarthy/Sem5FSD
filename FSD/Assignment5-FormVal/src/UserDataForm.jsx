@@ -69,11 +69,11 @@ const UserDataForm = () => {
     <div className='userdataform'>
       <h2>User Data Form</h2>
       <form onSubmit={handleSubmit}>
-        <FormElement label={"Name:"} value={formData.name} onChange={handleChange} className={errorMessage.includes('Name') ? 'error' : ''}/>
-        <FormElement label={"Email:"} value={formData.email} onChange={handleChange} className={errorMessage.includes('Email') ? 'error' : ''}/>
-        <FormElement label={"Age:"} value={formData.age} onChange={handleChange} className={errorMessage.includes('Age') ? 'error' : ''}/>
-        <FormElement label={"Mobile No:"} value={formData.mobileno} onChange={handleChange} className={errorMessage.includes('Mobile') ? 'error' : ''}/>
-        <FormElement label={"Address:"} value={formData.address} onChange={handleChange} className={errorMessage.includes('Address') ? 'error' : ''}/>
+        <FormElement name={"name"} label={"Name:"} value={formData.name} onChange={handleChange} className={errorMessage.includes('Name') ? 'error' : ''}/>
+        <FormElement name={"email"} label={"Email:"} value={formData.email} onChange={handleChange} className={errorMessage.includes('Email') ? 'error' : ''}/>
+        <FormElement name={"age"} label={"Age:"} value={formData.age} onChange={handleChange} className={errorMessage.includes('Age') ? 'error' : ''}/>
+        <FormElement name={"mobileno"} label={"Mobile No:"} value={formData.mobileno} onChange={handleChange} className={errorMessage.includes('Mobile') ? 'error' : ''}/>
+        <FormElement name={"address"} label={"Address:"} value={formData.address} onChange={handleChange} className={errorMessage.includes('Address') ? 'error' : ''}/>
         <button type="submit">Submit</button>
       </form>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
