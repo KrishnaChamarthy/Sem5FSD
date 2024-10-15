@@ -24,7 +24,7 @@ const Insert = () => {
     console.log(formData);
     try {
       const response = await axios.post(
-        "http://localhost:5000/books",
+        "http://localhost:5000/books/add",
         formData
       );
       setMessage("Book inserted successfully!");

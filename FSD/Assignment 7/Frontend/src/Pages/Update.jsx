@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ContainerElement from "../Components/ContainerElement";
+import axios from "axios";
 
 const Update = () => {
   const [formData, setFormData] = useState({
@@ -19,8 +20,8 @@ const Update = () => {
     e.preventDefault();
 
     if (!formData.isbn) {
-      setMessage("Please provide the ISBN of the book to update.");
-      return;
+        setMessage("Please provide the ISBN of the book to update.");
+        return;
     }
 
     const updateData = {};
@@ -28,29 +29,30 @@ const Update = () => {
     if (formData.title) updateData.title = formData.title;
     if (formData.author) updateData.author = formData.author;
     if (formData.pub) updateData.pub = formData.pub;
+
     console.log(updateData);
 
     try {
-      const response = await axios.put(
-        `http://localhost:5000/books/${formData.isbn}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updateData),
-        }
-      );
+        const response = await axios.put(
+            `http://localhost:5000/books/update`, 
+            updateData, 
+            {
+                params: { isbn: formData.isbn }, 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
 
-      if (response.ok) {
-        const result = await response.json();
-        setMessage("Book updated successfully!");
-      } else {
-        setMessage("Failed to update the book. Try again.");
-      }
+        if (response.status === 200) {
+            setMessage("Book updated successfully!");
+        } else {
+            setMessage("Failed to update the book. Try again.");
+        }
     } catch (error) {
-      setMessage("Error occurred while updating the book.");
+        setMessage("Error occurred while updating the book.");
     }
-  };
+};
 
   return (
     <div>

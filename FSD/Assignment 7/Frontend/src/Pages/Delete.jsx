@@ -21,7 +21,8 @@ const Delete = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/books/${isbn}`
+        `http://localhost:5000/books/remove`,
+        { params: { isbn } }
       );
 
       if (response.status === 200) {

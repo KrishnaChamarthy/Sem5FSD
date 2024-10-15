@@ -9,9 +9,9 @@ const Display = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/books");
-        if (response.data.length > 0) {
-          setBooks(response.data);
+        const response = await axios.get("http://localhost:5000/books/list");
+        if (response.data.data.length > 0) {
+          setBooks(response.data.data);
         } else {
           setMessage("No books found");
         }
